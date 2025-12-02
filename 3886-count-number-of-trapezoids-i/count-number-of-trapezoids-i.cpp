@@ -3,11 +3,11 @@ public:
     const int MOD = 1e9+7;
     int countTrapezoids(vector<vector<int>>& points) {
         unordered_map<int,long long> mp;
-        for(auto it : points){
+        for(auto &it : points){
             mp[it[1]]++;
         }
         vector<long long> pairs;
-        for(auto [y,count] : mp){
+        for(auto &[y,count] : mp){
             if(count > 1){
                 long long  it = 1LL *count*(count-1)/2LL;
                 pairs.push_back(it);
