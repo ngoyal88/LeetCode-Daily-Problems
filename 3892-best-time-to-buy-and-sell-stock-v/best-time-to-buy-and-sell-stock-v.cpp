@@ -2,7 +2,7 @@ class Solution {
 public:
     int n;
     vector<int> prices;
-    vector<vector<vector<long long>>> dp;
+    long long dp[1001][501][3];
     long long solve(int idx,int k,int state){
         if(idx==n || k==0){
             if(state == 0)return 0;
@@ -27,7 +27,7 @@ public:
     long long maximumProfit(vector<int>& price, int k) {
         n = price.size();
         prices = price;
-        dp.assign(n+1,vector<vector<long long>>(k+1,vector<long long>(3,-1)));
+        memset(dp, -1, sizeof(dp));
         return solve(0,k,0);
     }
 };
