@@ -6,14 +6,10 @@ public:
         int mini = INT_MAX;
         for (auto row : matrix) {
             for (int it : row) {
-                if (it < 0) {
-                    cnt++;
-                    sum -= it;
-                    mini = min(-it, mini);
-                } else {
-                    sum += it;
-                    mini = min(it, mini);
-                }
+                if (it < 0) cnt++;
+                it = abs(it);
+                sum += it;
+                mini = min(it, mini);
             }
         }
         if (cnt % 2 == 0)
